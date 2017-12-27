@@ -5,8 +5,8 @@ import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
 import { BrowserRouter, browserHistory, Route, Router, hashHistory } from 'react-router';
 
-
-
+import Features from './components/Auth/features';
+import SignOutComponent from './components/auth/signOutComponent';
 import SignIn from './components/Auth/signInComponent';
 import App from './components/app';
 import reducers from './reducers';
@@ -18,6 +18,8 @@ ReactDOM.render(
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <Route path="signin" component={SignIn} />
+        <Route path="features" component={Features} />
+        <Route path="signout" component={SignOutComponent} />
       </Route>
     </Router>
 

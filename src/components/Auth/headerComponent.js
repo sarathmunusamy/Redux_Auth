@@ -3,11 +3,12 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 
+
 class HeaderPanel extends React.Component {
 
     constructor(props) {
         super(props);
-        this.auth = this.props.authenticated;
+       // this.auth = this.props.authenticated;
     }
 
     renderLinks() {
@@ -15,7 +16,7 @@ class HeaderPanel extends React.Component {
 
         console.log("inside renderLink", this.props.authenticated);
 
-        if (this.auth) {
+        if (this.props.authenticated) {
             return <li className="nav navbar-items">
                 <Link to="/signout"> Signout </Link>
             </li>
@@ -47,8 +48,10 @@ class HeaderPanel extends React.Component {
 }
 
 function mapStateToProps(state) {
+    console.log("updated.... stated......",state);
+    
     return {
-        authenticated: state.auth.authenticated
+        authenticated: state.auth.authentication
     };
 }
 

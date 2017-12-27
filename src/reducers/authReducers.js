@@ -6,17 +6,18 @@ import {
     FETCH_MESSAGE
 } from '../actions/actionType';
 
-const authDecision = (state = {}, Action) => {
- 
+export default function (state = {}, Action) {
+
     switch (Action.type) {
         case AUTH_USER:
-            return { ...state, Authentication: true }
+            return { ...state, authentication: true }
             break;
-
+        case UNAUTH_USER:
+            return { ...state, authentication: false }
+            break;
         default:
             break;
     }
     return state;
 }
 
-export default authDecision;
